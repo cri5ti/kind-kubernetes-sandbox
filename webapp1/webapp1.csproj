@@ -1,0 +1,7 @@
+<Project>
+  <ItemGroup>
+    <Content Include="Dockerfile" />
+    <Content Include="k8s\deployment.yml" />
+    <Content Include="static\index.html" />
+  </ItemGroup>
+</Project>

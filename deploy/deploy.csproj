@@ -1,0 +1,7 @@
+<Project>
+  <ItemGroup>
+    <Content Include="kind\dashboard.yaml" />
+    <Content Include="kind\deploy.sh" />
+    <Content Include="kind\install_docker_wsl.sh" />
+  </ItemGroup>
+</Project>

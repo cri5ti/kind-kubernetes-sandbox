@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "k8s1", "k8s1\k8s1.csproj", "{1FF42A7B-5205-422F-A62C-039224B3229C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "deploy", "deploy\deploy.csproj", "{18808890-16A2-462B-82E9-629CF6BD0954}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webapp1", "webapp1\webapp1.csproj", "{601B226A-64F9-445E-BB3E-A3305D0FA4D2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deploy", "deploy", "{8D7B2399-25D9-426A-AFE3-D02307023A35}"
+ProjectSection(SolutionItems) = preProject
+	deploy\charts\k8s1\.helmignore = deploy\charts\k8s1\.helmignore
+	deploy\charts\k8s1\Chart.yaml = deploy\charts\k8s1\Chart.yaml
+	deploy\charts\k8s1\templates\deployment.yaml = deploy\charts\k8s1\templates\deployment.yaml
+	deploy\charts\k8s1\templates\ingress.yaml = deploy\charts\k8s1\templates\ingress.yaml
+	deploy\charts\k8s1\templates\NOTES.txt = deploy\charts\k8s1\templates\NOTES.txt
+	deploy\charts\k8s1\templates\secrets.yaml = deploy\charts\k8s1\templates\secrets.yaml
+	deploy\charts\k8s1\templates\service.yaml = deploy\charts\k8s1\templates\service.yaml
+	deploy\charts\k8s1\templates\_helpers.tpl = deploy\charts\k8s1\templates\_helpers.tpl
+	deploy\charts\k8s1\values.yaml = deploy\charts\k8s1\values.yaml
+EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1FF42A7B-5205-422F-A62C-039224B3229C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FF42A7B-5205-422F-A62C-039224B3229C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FF42A7B-5205-422F-A62C-039224B3229C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FF42A7B-5205-422F-A62C-039224B3229C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18808890-16A2-462B-82E9-629CF6BD0954}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18808890-16A2-462B-82E9-629CF6BD0954}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18808890-16A2-462B-82E9-629CF6BD0954}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18808890-16A2-462B-82E9-629CF6BD0954}.Release|Any CPU.Build.0 = Release|Any CPU
+		{601B226A-64F9-445E-BB3E-A3305D0FA4D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{601B226A-64F9-445E-BB3E-A3305D0FA4D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{601B226A-64F9-445E-BB3E-A3305D0FA4D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{601B226A-64F9-445E-BB3E-A3305D0FA4D2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F91B69EB-6AF1-4D21-9B20-A12C1FE115EC}
+	EndGlobalSection
+EndGlobal
