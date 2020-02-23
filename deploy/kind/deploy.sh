@@ -154,10 +154,12 @@ fi
 #done
 
 
-echo " ▶ ingress";
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/mandatory.yaml
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/provider/cloud-generic.yaml
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/provider/baremetal/service-nodeport.yaml
+if ! kubectl describe namespace ingress-nginx > /dev/null 2>&1;  then
+    echo " ▶ ingress-nginx";
+    kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/nginx-0.27.0/deploy/static/mandatory.yaml
+    kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/nginx-0.27.0/deploy/static/provider/baremetal/service-nodeport.yaml
+    kubectl patch deployments -n ingress-nginx nginx-ingress-controller -p '{"spec":{"template":{"spec":{"containers":[{"name":"nginx-ingress-controller","ports":[{"containerPort":80,"hostPort":80},{"containerPort":443,"hostPort":443}]}],"nodeSelector":{"ingress-ready":"true"},"tolerations":[{"key":"node-role.kubernetes.io/master","operator":"Equal","effect":"NoSchedule"}]}}}}'
+fi 
 
 
 echo " ⚒ building images"
@@ -169,14 +171,15 @@ registry="localhost:${registry_port}"
 for proj in "${projects[@]}"; do
     tag="${registry}/${proj}"
     echo " ▶ building ${tag} image...";
-    docker build -f "${repo_root}${proj}/Dockerfile" "${repo_root}${proj}" -t ${tag} > /dev/null
+    
+    echo "docker build -f "${repo_root}${proj}/Dockerfile" "${repo_root}${proj}" -t ${tag} > /dev/null"
+    docker build -f "${repo_root}${proj}/Dockerfile" "${repo_root}${proj}" -t ${tag} 
   
     #  echo "-------------------------------";
     echo "   ✔ ${tag} image built.";
     
     docker push ${tag}
-    kubectl set image deployment --all ${proj}=localhost:5000/${proj}
-  
+    
     if [[ -d ../charts/${proj} ]]; then
         echo "   ▶ deploying ${proj}";
       
@@ -184,6 +187,8 @@ for proj in "${projects[@]}"; do
     else
         echo "   ❌ don't know how to deploy ${proj}";
     fi
-  
+
+    kubectl set image deployments/${proj} ${proj}=localhost:5000/${proj}:latest
+
 done
 

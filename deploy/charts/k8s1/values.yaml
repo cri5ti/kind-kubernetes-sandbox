@@ -1,19 +1,19 @@
-# Default values for k8s1.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
 fullnameOverride: k8s1
 replicaCount: 1
+
 image:
   repository: k8s1
   tag: latest
   pullPolicy: IfNotPresent
 imagePullSecrets: []
+  
   # Optionally specify an array of imagePullSecrets.
   # Secrets must be manually created in the namespace.
   # ref: https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod
   #
   # This uses credentials from secret "myRegistryKeySecretName".
   # - name: myRegistryKeySecretName
+
 service:
   type: ClusterIP
   port: 80
@@ -25,9 +25,9 @@ ingress:
   enabled: true
   annotations:
     kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /api/
     # kubernetes.io/tls-acme: "true"
-  path: /
+  path: /api/
   hosts:
     - local.cri5ti.com
   tls: []

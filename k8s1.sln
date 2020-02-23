@@ -9,19 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "deploy", "deploy\deploy.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webapp1", "webapp1\webapp1.csproj", "{601B226A-64F9-445E-BB3E-A3305D0FA4D2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deploy", "deploy", "{8D7B2399-25D9-426A-AFE3-D02307023A35}"
-ProjectSection(SolutionItems) = preProject
-	deploy\charts\k8s1\.helmignore = deploy\charts\k8s1\.helmignore
-	deploy\charts\k8s1\Chart.yaml = deploy\charts\k8s1\Chart.yaml
-	deploy\charts\k8s1\templates\deployment.yaml = deploy\charts\k8s1\templates\deployment.yaml
-	deploy\charts\k8s1\templates\ingress.yaml = deploy\charts\k8s1\templates\ingress.yaml
-	deploy\charts\k8s1\templates\NOTES.txt = deploy\charts\k8s1\templates\NOTES.txt
-	deploy\charts\k8s1\templates\secrets.yaml = deploy\charts\k8s1\templates\secrets.yaml
-	deploy\charts\k8s1\templates\service.yaml = deploy\charts\k8s1\templates\service.yaml
-	deploy\charts\k8s1\templates\_helpers.tpl = deploy\charts\k8s1\templates\_helpers.tpl
-	deploy\charts\k8s1\values.yaml = deploy\charts\k8s1\values.yaml
-EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
